@@ -9,27 +9,21 @@
   <packaging>war</packaging>
 
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <javaee.version>8.0</javaee.version>
+    <project.report.sourceEncoding>UTF-8</project.report.sourceEncoding>
+    <maven.compiler.release>17</maven.compiler.release>
+    <jakartaee-api.version>10.0.0</jakartaee-api.version>
+    <wildfly.version>33.0.2.Final</wildfly.version>
+    <compiler-plugin.version>3.13.0</compiler-plugin.version>
+    <war-plugin.version>3.4.0</war-plugin.version>
+    <wildfly-plugin.version>5.0.1.Final</wildfly-plugin.version>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>javax.xml.ws</groupId>
-      <artifactId>jaxws-api</artifactId>
-      <version>2.3.1</version>
-    </dependency>
-    <dependency>
-      <groupId>com.sun.xml.ws</groupId>
-      <artifactId>jaxws-rt</artifactId>
-      <version>4.0.3</version>
-    </dependency>
-    <dependency>
-      <groupId>javax</groupId>
-      <artifactId>javaee-api</artifactId>
-      <version>${javaee.version}</version>
+      <groupId>jakarta.platform</groupId>
+      <artifactId>jakarta.jakartaee-api</artifactId>
+      <version>${jakartaee-api.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -62,22 +56,16 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler-plugin.version}</version>
+      </plugin>
+      <plugin>
         <artifactId>maven-war-plugin</artifactId>
-        <version>3.3.1</version>
+        <version>${war-plugin.version}</version>
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <source>${maven.compiler.source}</source>
-          <target>${maven.compiler.target}</target>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
-
 </project>

@@ -1,13 +1,13 @@
 package ru.udodov.app;
 
+import jakarta.ejb.Stateless;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
-import jakarta.jws.soap.SOAPBinding;
 import ru.udodov.exeptions.DiscriminantException;
 
+@Stateless
 @WebService
-@SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use = SOAPBinding.Use.LITERAL)
 public class QuadraticEquationSolver {
 
     @WebMethod
